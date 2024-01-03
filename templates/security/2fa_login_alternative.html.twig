@@ -1,0 +1,14 @@
+{% block subject %}
+    Votre code de vérification
+{% endblock %}
+
+{% block body_text %}
+    Bonjour {{ user.username }},
+
+    Voici votre code de vérification : {{ code }}.
+
+    Ce code est valable pour une durée limitée et vous permettra de vous connecter à votre compte.
+
+    Bien cordialement,
+    L'équipe de Prends un cours et plus vite que ça !
+{% endblock %}

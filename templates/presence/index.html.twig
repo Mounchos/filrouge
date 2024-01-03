@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presence index{% endblock %}
+
+{% block body %}
+    <h1>Presence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Elève</th>                
+                <th>Validation_presence</th>
+                <th>seances_id</th>
+                {# <th>actions</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for presence in presences %}
+            <tr>
+                <td>{{ presence.coursNomEleve }} {{ presence.coursPrenomEleve }}</td>                
+                <td>{{ presence.validationPresence }}</td>
+                <td>{{ presence.seances.id}}</td>
+                {# <td>
+                    <a href="{{ path('app_presence_show', {'id': presence.id}) }}">show</a>
+                    <a href="{{ path('app_presence_edit', {'id': presence.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas d'inscription à ce cours enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('app_presence_new') }}">Create new</a> #}
+{% endblock %}
